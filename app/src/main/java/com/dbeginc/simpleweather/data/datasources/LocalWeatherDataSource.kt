@@ -8,8 +8,8 @@ import io.reactivex.Flowable
 /**
  * Created by darel on 26.03.18.
  *
- * LocalWeatherDataSource represent a source of data that can be memory , offline or network
- * every data source must implementation this interface
+ * LocalWeatherDataSource represent a source of data that can be memory , offline
+ * every data source that are kept on device must implementation this interface
  *
  * This allow us to easily switch sources without changing most of our code
  */
