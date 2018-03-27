@@ -15,8 +15,8 @@ import io.reactivex.Flowable
  */
 interface LocalWeatherDataSource {
     /**
-     * Get weather from remote data source
-     * @param request containing all information the remote source
+     * Get weather from local data source
+     * @param request containing all information the local source
      * need to complete the task
      */
     fun getCurrentWeather(request: CurrentWeatherRequest) : Flowable<CurrentWeather>
