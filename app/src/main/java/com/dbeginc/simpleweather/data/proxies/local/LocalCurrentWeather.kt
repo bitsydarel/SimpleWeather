@@ -10,7 +10,7 @@ import android.arch.persistence.room.PrimaryKey
  * Local Weather Entity
  */
 @Entity(tableName = "weather")
-data class LocalWeatherEntity (
+data class LocalCurrentWeather (
         val latitude: Double,
         val longitude: Double,
         val icon: String,

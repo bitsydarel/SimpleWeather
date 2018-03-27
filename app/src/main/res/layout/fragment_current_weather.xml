@@ -1,13 +1,122 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.dbeginc.simpleweather.presentation.weather.CurrentWeatherFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+        <variable
+            name="Current"
+            type="com.dbeginc.simpleweather.presentation.viewmodels.CurrentWeatherModel"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/weatherLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context="com.dbeginc.simpleweather.presentation.weather.CurrentWeatherFragment">
 
-</FrameLayout>
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/weatherAppBar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            style="@style/Widget.Design.AppBarLayout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/weatherToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                style="@style/Widget.AppCompat.Toolbar"
+                app:title="@string/current_weather" />
+        </android.support.design.widget.AppBarLayout>
+
+        <ProgressBar
+            android:id="@+id/loadingIndicator"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:indeterminateOnly="true"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            app:layout_constraintTop_toBottomOf="@id/weatherAppBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@{Current.location}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textAlignment="center"
+            tools:text="Kiev"
+            app:layout_constraintTop_toBottomOf="@id/loadingIndicator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_margin="8dp"
+            android:contentDescription="@string/weather_icon"
+            tools:src="@drawable/ic_cloud"
+            app:setIcon="@{Current.icon}"
+            app:layout_constraintTop_toBottomOf="@id/location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/temperature"/>
+
+        <TextView
+            android:id="@+id/temperature"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{@string/temp(Current.temperature)}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textAlignment="center"
+            tools:text="18"
+            app:layout_constraintTop_toBottomOf="@id/icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/summary"/>
+
+        <TextView
+            android:id="@+id/temperatureMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/min_temp(Current.temperatureMin)}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            tools:text="Min: -16"
+            app:layout_constraintTop_toBottomOf="@id/temperature"
+            app:layout_constraintStart_toStartOf="@id/temperature"
+            app:layout_constraintEnd_toStartOf="@+id/temperatureMax" />
+
+        <TextView
+            android:id="@+id/temperatureMax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/min_temp(Current.temperatureMax)}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            tools:text="Max: 18"
+            app:layout_constraintTop_toBottomOf="@id/temperature"
+            app:layout_constraintStart_toEndOf="@id/temperatureMin"
+            app:layout_constraintEnd_toEndOf="@id/temperature"/>
+
+        <TextView
+            android:id="@+id/summary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{Current.summary}"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            tools:text="It's cloudy and nice outside"
+            app:layout_constraintTop_toBottomOf="@id/temperature"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

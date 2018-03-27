@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">SimpleWeather</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="weather_icon">Weather icon</string>
+    <string name="current_weather">Current Weather</string>
+    <string name="error_current_weather">Could not load current weather</string>
+    <string name="retry">Retry</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="refresh">Refresh</string>
+    <string name="temp">%1$s°</string>
+    <string name="min_temp">Min:  %1$s°</string>
+    <string name="max_temp">Max:  %1$s°</string>
+    <string name="settings">Settings</string>
+    <string name="close">Close</string>
+    <string name="network_unavailable">Network unavailable</string>
+</resources>

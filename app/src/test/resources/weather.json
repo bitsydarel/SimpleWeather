@@ -1,0 +1,42 @@
+{
+  "coord": {
+    "lon": 30.52,
+    "lat": 50.43
+  },
+  "weather": [
+    {
+      "id": 803,
+      "main": "Clouds",
+      "description": "пасмурно",
+      "icon": "04n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 2.66,
+    "pressure": 1013,
+    "humidity": 64,
+    "temp_min": 2,
+    "temp_max": 3
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 3,
+    "deg": 210
+  },
+  "clouds": {
+    "all": 75
+  },
+  "dt": 1522083600,
+  "sys": {
+    "type": 1,
+    "id": 7358,
+    "message": 0.0029,
+    "country": "UA",
+    "sunrise": 1522035979,
+    "sunset": 1522081285
+  },
+  "id": 703448,
+  "name": "Kiev",
+  "cod": 200
+}

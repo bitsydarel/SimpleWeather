@@ -3,9 +3,9 @@ package com.dbeginc.simpleweather.domain.entities
 /**
  * Created by darel on 26.03.18.
  *
- * Weather class representing Weather information
+ * CurrentWeatherModel class representing CurrentWeatherModel information
  */
-data class Weather(
+data class CurrentWeather(
         val latitude: Double,
         val longitude: Double,
         val icon: String,
